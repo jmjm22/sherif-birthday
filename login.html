@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#F4EFEA,#E6D5C3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    color:#3E2C23;
+    padding:20px;
+}
+
+.box{
+    background:#EFE6DC;
+    padding:55px 35px;
+    border-radius:30px;
+    width:100%;
+    max-width:380px;
+    text-align:center;
+    box-shadow:0 25px 50px rgba(0,0,0,0.08);
+}
+
+h2{
+    color:#7F5539;
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:18px;
+    text-align:center;
+    background:#F4EFEA;
+    font-size:16px;
+    margin-bottom:20px;
+    outline:none;
+}
+
+input:focus{
+    box-shadow:0 0 0 2px #B08968;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:25px;
+    background:#B08968;
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#7F5539;
+}
+
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>ادخل تاريخ تعارفنا 🤎</h2>
+<input type="password" id="password">
+<button onclick="check()">دخول</button>
+</div>
+
+<script>
+function check(){
+    if(document.getElementById("password").value==="2202"){
+        localStorage.setItem("accessGranted","true");
+        window.location.href="index.html";
+    }else{
+        alert("تاريخ غير صحيح 😉");
+    }
+}
+</script>
+
+</body>
+</html>

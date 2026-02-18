@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ذكرياتنا</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:linear-gradient(135deg,#F4EFEA,#E6D5C3);
+    font-family:'Segoe UI',sans-serif;
+    padding:30px 20px 80px 20px;
+}
+
+/* כפתור חזרה */
+.back-btn{
+    align-self:flex-start;
+    background:#B08968;
+    color:white;
+    padding:8px 18px;
+    border-radius:25px;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#7F5539;
+}
+
+h1{
+    color:#7F5539;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.play-btn{
+    padding:10px 25px;
+    background:#7F5539;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-bottom:25px;
+}
+
+.play-btn:hover{
+    background:#5E503F;
+}
+
+.video-wrapper{
+    width:100%;
+    max-width:300px;   /* היה 500 או 600 */
+    margin:0 auto;
+}
+
+video{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.18);
+}
+
+.caption{
+    margin-top:30px;
+    font-size:18px;
+    color:#5E503F;
+    line-height:1.8;
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">חזרה</a>
+
+<h1>🤍 ذكرياتنا مع بعض</h1>
+
+<button class="play-btn" onclick="playVideo()">تشغيل المفاجأة 🎥🤍</button>
+
+<div class="video-wrapper">
+    <video id="myVideo" controls>
+        <source src="video.mp4" type="video/mp4">
+        المتصفح لا يدعم تشغيل الفيديو
+    </video>
+</div>
+
+<div class="caption">
+كل لحظة معك كانت أجمل من اللي قبلها…  
+وهذا الفيديو بيحكي جزء صغير من حبنا 🤎
+</div>
+
+<script>
+function playVideo(){
+    const video = document.getElementById("myVideo");
+    video.style.display = "block";
+    video.play();
+}
+</script>
+
+</body>
+</html>

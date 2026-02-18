@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#F4EFEA;
+    color:#3E2C23;
+}
+
+.navbar{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:20px;
+    background:#E6D8C9;
+}
+
+.navbar a{
+    color:#7F5539;
+    font-size:22px;
+}
+
+.container{
+    text-align:center;
+    padding-top:40px;
+}
+
+h2{
+    color:#7F5539;
+}
+.main-image{
+    width:70%;
+    max-width:420px;
+    height:50vh;           /* גובה 60% מהמסך */
+    border-radius:25px;
+    margin-top:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    animation:fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.95);}
+    to{opacity:1; transform:scale(1);}
+}
+
+
+
+.timer{
+    margin-top:20px;
+    font-size:18px;
+    color:#B08968;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<a href="surprise.html"><i class="fa-solid fa-gift"></i></a>
+<a href="memories.html"><i class="fa-solid fa-camera"></i></a>
+<a href="letter.html"><i class="fa-solid fa-envelope"></i></a>
+
+
+</div>
+
+<div class="container">
+<h2>عيد ميلاد سعيد يا دنيتي 🤎</h2>
+<img src="your-photo.jpg" class="main-image">
+<div class="timer" id="timer"></div>
+</div>
+
+<script>
+if(localStorage.getItem("accessGranted")!=="true"){
+    window.location.href="login.html";
+}
+
+const startDate=new Date("2022-02-22");
+
+function updateTimer(){
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (diff % (1000 * 60 * 60)) / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (diff % (1000 * 60)) / 1000
+    );
+
+    document.getElementById("timer").innerText =
+        "من يوم ما دخلت حياتي:\n" +
+        days + " يوم | " +
+        hours + " ساعة | " +
+        minutes + " دقيقة | " +
+        seconds + " ثانية 🤎";
+}
+
+setInterval(updateTimer,1000);
+updateTimer();
+</script>
+
+</body>
+</html>

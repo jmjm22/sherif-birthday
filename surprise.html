@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المفاجأة 🤎</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#F4EFEA;
+    color:#3E2C23;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px;
+}
+
+h2{
+    color:#7F5539;
+    margin-bottom:20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    width:100%;
+    max-width:420px;
+}
+
+/* כרטיס */
+.scratch-container{
+    position:relative;
+    width:90%;
+    height:220px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* הטקסט שמתחת */
+.message{
+    width:100%;
+    height:100%;
+    background:#E6D8C9;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:15px;
+}
+
+.message span{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#7F5539;
+}
+
+/* הקנבס עם התמונה */
+canvas{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    touch-action:none;
+}
+
+/* כפתור חזרה */
+.back-btn{
+    margin-top:40px;
+    text-decoration:none;
+    background:#B08968;
+    color:white;
+    padding:12px 28px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+
+.back-btn:hover{
+    background:#7F5539;
+    transform:scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<h2>امسح الصورة 🤎</h2>
+
+<div class="cards">
+
+<div class="scratch-container">
+    <div class="message">
+        <span>2</span>
+        أحبك أكثر كل يوم
+    </div>
+    <canvas data-img="photo1.jpg"></canvas>
+</div>
+
+<div class="scratch-container">
+    <div class="message">
+        <span>4</span>
+ أجمل صدفة صارت بحياتي   
+     </div>
+    <canvas data-img="photo2.jpg"></canvas>
+</div>
+
+<div class="scratch-container">
+    <div class="message">
+        <span>6</span>
+        معك للأبد ∞
+    </div>
+    <canvas data-img="photo3.jpg"></canvas>
+</div>
+
+<div class="scratch-container">
+    <div class="message">
+        <span>1</span>
+        أنت الأول دائماً
+    </div>
+    <canvas data-img="photo4.jpg"></canvas>
+</div>
+
+<div class="scratch-container">
+    <div class="message">
+        <span>3</span>
+      كل يوم معك أحلى من اللي قبله
+    </div>
+    <canvas data-img="photo5.jpg"></canvas>
+</div>
+
+<div class="scratch-container">
+    <div class="message">
+        <span>5</span>
+          عيونك دنيتي
+    </div>
+    <canvas data-img="photo6.jpg"></canvas>
+</div>
+
+</div>
+
+<a href="index.html" class="back-btn">חזרה </a>
+
+<script>
+const canvases = document.querySelectorAll("canvas");
+
+canvases.forEach(canvas=>{
+    const ctx = canvas.getContext("2d");
+    const container = canvas.parentElement;
+
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+
+    const img = new Image();
+    img.src = canvas.getAttribute("data-img");
+
+    img.onload = function(){
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
+        ctx.globalCompositeOperation = "destination-out";
+    };
+
+    let draw=false;
+
+    function pos(e){
+        const r=canvas.getBoundingClientRect();
+        return{
+            x:(e.touches?e.touches[0].clientX:e.clientX)-r.left,
+            y:(e.touches?e.touches[0].clientY:e.clientY)-r.top
+        }
+    }
+
+    function scratch(e){
+        if(!draw)return;
+        e.preventDefault();
+        const p=pos(e);
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,25,0,Math.PI*2);
+        ctx.fill();
+    }
+
+    canvas.addEventListener("mousedown",()=>draw=true);
+    canvas.addEventListener("mouseup",()=>draw=false);
+    canvas.addEventListener("mousemove",scratch);
+
+    canvas.addEventListener("touchstart",()=>draw=true);
+    canvas.addEventListener("touchend",()=>draw=false);
+    canvas.addEventListener("touchmove",scratch);
+});
+</script>
+
+</body>
+</html>

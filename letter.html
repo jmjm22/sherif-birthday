@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رسالة إليك</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:linear-gradient(135deg,#F4EFEA,#E6D5C3);
+    font-family:'Segoe UI',sans-serif;
+    padding:40px 20px;
+}
+
+/* שורת עליונה */
+.top-bar{
+    width:100%;
+    max-width:800px;
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom:40px;
+}
+
+/* כפתור חזרה */
+.back-btn{
+    background:#B08968;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#7F5539;
+}
+
+.container{
+    text-align:center;
+}
+
+.envelope{
+    width:220px;
+    height:150px;
+    background:#B08968;
+    position:relative;
+    margin:auto;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:-75px;
+    left:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-bottom:75px solid #7F5539;
+    transition:0.5s;
+}
+
+.envelope.open:before{
+    transform:rotateX(180deg);
+    transform-origin:top;
+}
+
+.open-btn{
+    margin-top:20px;
+    padding:10px 25px;
+    background:#7F5539;
+    color:white;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.open-btn:hover{
+    background:#5E503F;
+}
+
+.letter{
+    display:none;
+    max-width:650px;
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.1);
+    line-height:2.1;
+    font-size:18px;
+    color:#5E503F;
+    margin-top:40px;
+    animation:fadeIn 1s ease-in-out;
+    position:relative;
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    left:25px;
+    background:none;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+    color:#7F5539;
+}
+
+h2{
+    text-align:center;
+    color:#7F5539;
+    margin-bottom:30px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html" class="back-btn"> חזרה</a>
+</div>
+
+<div class="container">
+
+<div class="envelope" id="envelope"></div>
+
+<button class="open-btn" onclick="openLetter()">افتح الرسالة 🤍</button>
+
+<div class="letter" id="letter">
+<button class="close-btn" onclick="closeLetter()">✕</button>
+<h2>إلى شريف 🤎</h2>
+
+حبيبي… يا كل العمر ❤️  
+
+اليوم مش بس عيد ميلادك…  
+اليوم عيد قلبي، عيد روحي، عيد كل لحظة صارت أحلى من يوم دخلت حياتي.  
+في مثل هذا اليوم انخلق شخص غيّر تفاصيل حياتي كلها، شخص علّمني معنى الأمان، ومعنى إنو يكون عندك إنسان تخاف عليه أكتر ما تخاف على حالك.  
+
+كل عام وانت النور اللي ما بيطفي بقلبي،  
+كل عام وانت الرجل والشخص اللي مكانته مختلفة عن الكل،  
+كل عام وانت الحظ الحلو اللي دعوت فيه سنين وربّي استجاب.  
+
+أنا يمكن أكتب كلام كثير،  
+بس الحقيقة إنو شعوري تجاهك أكبر من كل الحكي.  
+أنت مش بس حبيبي…  
+أنت سندي لما الدنيا تضيق،  
+وأنت ضحكتي لما أحزن،  
+وأنت الطمأنينة اللي بتهدّي كل خوفي.  
+
+من يوم ما عرفتك، وأنا صرت أشوف الدنيا بطريقة غير،  
+صرت أحب التفاصيل الصغيرة،  
+صرت أبتسم بدون سبب،  
+صرت أفكر فيك قبل ما أفكر بحالي.  
+
+بحب كيف قلبك طيب،  
+كيف غيرتك عليّ أمان مش قيد،  
+كيف بتحبني بدون شروط،  
+وكيف دايمًا بتحاول تكون الأفضل عشاني.  
+أنا فخورة فيك 🤍  
+
+بعيد ميلادك بدي أقولك:  
+الله يخليك إلي وما يحرمني منك،  
+ويكتبلي أكون جنبك بكل نجاح، بكل تعب، بكل حلم عم تبنيه.  
+بدي أكون أول حدا يفرح فيك، وأول حدا يمسح دمعتك لو نزلت.  
+
+بدي نكبر سوا،  
+نعيش كل سنة من عمرك وأنا ماسكة إيدك،  
+نحقق أحلامنا،  
+ونرجع بعد سنين نتذكر كيف بلّشنا ونضحك.  
+
+أنت نعمة ما بدي أفقدها،  
+أنت الدعوة اللي تمنيتها،  
+وأنت الرجل اللي قلبي اختاره من بين كل العالم.  
+
+عيد ميلاد سعيد يا أجمل هدية بحياتي 🎂❤️ <br> 
+
+وعد مني إني أظل أحبك كل يوم أكتر من اللي قبله،  
+وكل سنة وانت بقلبي…  
+وكل سنة وإحنا سوا 🤍  
+<br>
+من جومانة… اللي بتحبك بكل قلبها 🤍  
+اللي اختارتك من بين كل العالم،  
+وبتختارك كل يوم من جديد 🤍<br>  
+حبيبتك، وسندك، ونصك الثاني للأبد 🤍  
+
+</div>
+
+</div>
+<script>
+function openLetter(){
+    document.getElementById("envelope").classList.add("open");
+    document.getElementById("letter").style.display = "block";
+}
+
+function closeLetter(){
+    document.getElementById("letter").style.display = "none";
+    document.getElementById("envelope").classList.remove("open");
+}
+</script>
+
+</body>
+</html>
